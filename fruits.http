@@ -1,0 +1,56 @@
+
+// Muestra todas las frutas de la base de datos
+GET http://localhost:3001/fruits
+Content-Type: application/json
+###
+
+// Muestra unafruta según su id
+GET http://localhost:3001/fruits/id/646bf8f9f3131ff739149379
+Content-Type: application/json
+###
+
+// Muestra el tipo de fruta al introducir el nombre de la misma en la url
+GET http://localhost:3001/fruits/fruitName/limón
+Content-Type: application/json
+###
+
+// Muestra una fruta según su tipo
+GET http://localhost:3001/fruits/type/semidulce
+Content-Type: application/json
+###
+
+
+// Añade una nueva fruta la base de datos. Falta descubrir cómo cargar una foto desde REST CLient. No funciona desde que tiene enlace claoudinary. Sólo desde Postman
+POST http://localhost:3001/fruits
+Content-Type: application/json
+
+
+{
+        "fruitName": "pera de conferencia",
+        "type": "semidulce",
+        "priceKg": 1.50,
+        "origin": "Holanda",
+        "image": ""
+}
+
+
+
+###
+// Modifica fruta enviando su _id por la url
+PUT http://localhost:3001/fruits/646bf8f9f3131ff739149379
+Content-Type: application/json
+
+{
+        "fruitName": "plátano",
+        "type": "dulce",
+        "priceKg": 2.85,
+        "origin": "Canarias",
+        "image": ""
+}
+###
+//Elimina frutas mandando su _id
+DELETE http://localhost:3001/fruits/646d3b2ccda8893918c08df6
+Content-Type: application/json
+
+###
+

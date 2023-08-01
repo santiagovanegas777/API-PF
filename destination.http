@@ -1,0 +1,88 @@
+// Devuelve todos las destinos de la base de datos
+GET http://localhost:3001/destinations
+Content-Type: application/json
+###
+
+// Devuelve un destino desde su id por params
+GET http://localhost:3001/destinations/id/64bbad589db4079a05791a04
+Content-Type: application/json
+###
+
+// Devuelve descripción desde su localización en por params
+GET http://localhost:3001/destinations/destinationDescription/Nueva York, Estados Unidos
+###
+
+// Devuelve destinos desde su localización por params
+GET http://localhost:3001/destinations/destinationsFromPlace/París, Francia
+###
+
+
+// Añade un nuevo destino en la base de datos. Falta descubrir cómo cargar una foto desde REST CLient. No funciona desde que tiene enlace claoudinary. Sólo desde Postman
+POST http://localhost:3001/destinations
+Content-Type: application/json
+
+
+  {
+    "destinationHotel": {
+      "hotelName": "Norman Vates motel",
+      "hotelCategory": "5 chapas",
+      "hotelLocation": "Carretera oscura km 666"
+    },
+    "destinationPlace": "Costa da Morte, Galicia profunda",
+    "destinationDate": "Desde el 9 al 17 de Octubre 2023",
+    "destinationPrice": 200,
+    "destinationDescription": "¿Te imaginas estar en la ducha y que apareza un tipo con una peluca rubia y un cuchillo?",
+    "destinationIncluded": [
+      "Seguro de accidentes",
+      "Maletín de primeros auxilios",
+      "Pastillas de cianuro",
+      "Traslados en ambulancia",
+      "Collar de ajos"
+    ],
+     "destinationInformation": "Precios, fechas y disponibilidad están sujetos a cambios. Consulta con nuestro equipo de ventas para obtener más detalles sobre el paquete y las promociones especiales disponibles.",
+    "destinationImg": [
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/paris_37bc088a_1280x720_jwmj2l.jpg",
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/87c891d0-7f75-11e8-b6b0-0242ac110007_aj43is.webp",
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/a60c7ed4-cc5d-478e-98fa-0c4210ed2908_n7vqho.webp",
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/948ecba9-2af5-4b9c-876f-9c51bb46043b_xfo3qd.webp"
+    ],
+}
+
+
+
+###
+// Modifica destino enviando su _id por la url y nuevos datos por el body. Sólo desde postman
+PUT http://localhost:3001/destinations/64bba6f2298e19ff9d296a2d
+Content-Type: application/json
+
+{
+    "destinationHotel": {
+      "hotelName": "Norman Vates motel",
+      "hotelCategory": "5 cuchillos",
+      "hotelLocation": "Carretera de Puxeiros km 99"
+    },
+    "destinationPlace": "Pontevedra, Galicia profunda",
+    "destinationDate": "Desde el 9 al 17 de Octubre 2023",
+    "destinationPrice": 200,
+    "destinationDescription": "¿Te imaginas estar en la ducha y que apareza un tipo con una peluca rubia y un cuchillo?",
+    "destinationIncluded": [
+      "Seguro de accidentes",
+      "Maletín de primeros auxilios",
+      "Pastillas de cianuro",
+      "Traslados en ambulancia",
+      "Collar de ajos"
+    ],
+     "destinationInformation": "Precios, fechas y disponibilidad están sujetos a cambios. Consulta con nuestro equipo de ventas para obtener más detalles sobre el paquete y las promociones especiales disponibles.",
+    "destinationImg": [
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/paris_37bc088a_1280x720_jwmj2l.jpg",
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/87c891d0-7f75-11e8-b6b0-0242ac110007_aj43is.webp",
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/a60c7ed4-cc5d-478e-98fa-0c4210ed2908_n7vqho.webp",
+      "https://res.cloudinary.com/dgenowvll/image/upload/v1689979140/Destinos/948ecba9-2af5-4b9c-876f-9c51bb46043b_xfo3qd.webp"
+    ],
+}
+###
+//Elimina destinos mandando su _id
+DELETE http://localhost:3001/destinations/64bbad589db4079a05791a03
+Content-Type: application/json
+
+###

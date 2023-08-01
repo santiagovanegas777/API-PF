@@ -1,0 +1,57 @@
+// Devuelve todas las actividades de la base de datos
+GET http://localhost:3001/activities
+Content-Type: application/json
+###
+
+// Devuelve una actividad desde su id por params
+GET http://localhost:3001/activities/id/64bb9f7009554dc9a711c541
+Content-Type: application/json
+###
+
+// Devuelve el precio de una actividad desde su nombre por params
+GET http://localhost:3001/activities/activityPrice/Crucero turístico con paradas libres por el río Sena de París
+###
+
+// Devuelve actividades desde su localización por params
+GET http://localhost:3001/activities/activitiesPlace/Olmedo, Valladolid
+Content-Type: application/json
+###
+
+
+// Añade una nueva actividad la base de datos. Falta descubrir cómo cargar una foto desde REST CLient. No funciona desde que tiene enlace claoudinary. Sólo desde Postman
+POST http://localhost:3001/activities
+Content-Type: application/json
+
+
+{
+    "activityName": "Ir a cagar a Olmedo",
+    "activityPlace": "Olmedo, valladolid",
+    "activityDate": " 9 de Octubre 2023",
+    "activityTime": "10:00",
+    "activityPrice": 5,
+    "activityImg": "https://www.atrapalo.com/ou/static/_next/image/?url=https%3A%2F%2Fcdn.atrapalo.com%2Fcommon%2Fphoto%2Fevent%2F4%2F8%2F4%2F8326%2F1127781%2Ftic_0_0.jpg&w=574&q=75",
+    "activityDescription": "Entrar al servicio del castillo, sentarse en wáter, empujar.",
+}
+
+
+
+###
+// Modifica actividad enviando su _id por la url y nuevos datos por el body. Sólo desde postman
+PUT http://localhost:3001/activities/64bba6f2298e19ff9d296a2d
+Content-Type: application/json
+
+{
+    "activityName": "Ver el castillo de Olmedo",
+    "activityPlace": "Olmedo, valladolid",
+    "activityDate": " 9 de Octubre 2023",
+    "activityTime": "10:00",
+    "activityPrice": 10,
+    "activityImg": "https://www.atrapalo.com/ou/static/_next/image/?url=https%3A%2F%2Fcdn.atrapalo.com%2Fcommon%2Fphoto%2Fevent%2F4%2F8%2F4%2F8326%2F1127781%2Ftic_0_0.jpg&w=574&q=75",
+    "activityDescription": "Entrar al castillo a verlo.",
+}
+###
+//Elimina actividades mandando su _id
+DELETE http://localhost:3001/activities/64bba6f2298e19ff9d296a2d
+Content-Type: application/json
+
+###
